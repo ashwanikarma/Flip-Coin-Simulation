@@ -1,6 +1,6 @@
 HeadWin=0;
 TailWin=0;
-for(( i=0; i<=10; i++ ))
+for(( i=0; i<=100; i++ ))
 do
 	coin=$((RANDOM%2));
 	if [ $coin -eq 0 ]
@@ -10,6 +10,11 @@ do
 	else
 		TailWin=$(($TailWin+1));
 		echo "Tail";
+	fi
+	
+	if [ $HeadWin -eq 21 || $TailWin -eq 21 ]
+	then
+		break;
 	fi
 done
 
