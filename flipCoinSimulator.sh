@@ -1,8 +1,9 @@
 HeadWin=0;
 TailWin=0;
-for(( i=0; i<=100; i++ ))
+while [[ $HeadWin -lt 21 && $TailWin -lt 21 ]]
 do
 	coin=$((RANDOM%2));
+
 	if [ $coin -eq 0 ]
 	then
 		HeadWin=$(($HeadWin+1));
@@ -11,11 +12,7 @@ do
 		TailWin=$(($TailWin+1));
 		echo "Tail";
 	fi
-	
-	if [ $HeadWin -eq 21 || $TailWin -eq 21 ]
-	then
-		break;
-	fi
+   	
 done
 
 if [ $HeadWin -gt $TailWin ]
